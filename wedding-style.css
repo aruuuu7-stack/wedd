@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #f5f1e8 0%, #e8ddd4 50%, #f0ebe0 100%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Кнопка музыки */
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(201, 169, 97, 0.9);
+    border: 2px solid #8b6f47;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    background: rgba(201, 169, 97, 1);
+    transform: scale(1.1);
+}
+
+.music-toggle.playing {
+    background: rgba(139, 111, 71, 0.9);
+}
+
+/* Страницы */
+.page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.page-content {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Страница 1: Заголовок */
+.page-1 {
+    background: linear-gradient(135deg, #f5f1e8 0%, #e8ddd4 100%);
+}
+
+.pattern-left,
+.pattern-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pattern-left {
+    left: 0;
+}
+
+.pattern-right {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.kyrgyz-pattern-vertical {
+    width: 100%;
+    height: 100%;
+}
+
+.main-title {
+    font-size: 5em;
+    color: #8b6f47;
+    font-weight: 400;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: #c9a961;
+    animation: bounce 2s infinite;
+    z-index: 3;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* Страница 2: Текст приглашения */
+.page-2 {
+    background: linear-gradient(135deg, #fff8f0 0%, #f5f1e8 100%);
+}
+
+.invitation-text {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 60px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.greeting {
+    font-size: 2.5em;
+    color: #8b6f47;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.poem {
+    font-size: 1.5em;
+    color: #6b5543;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.poem:last-child {
+    margin-bottom: 0;
+}
+
+/* Страница 3: Дата и место */
+.page-3 {
+    background: linear-gradient(135deg, #f0ebe0 0%, #e8ddd4 100%);
+}
+
+.rings-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 60px;
+    animation: floatRings 3s ease-in-out infinite;
+}
+
+@keyframes floatRings {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.ring {
+    font-size: 4em;
+    animation: rotateRing 4s linear infinite;
+}
+
+.ring-left {
+    animation-delay: 0s;
+}
+
+.ring-right {
+    animation-delay: 2s;
+}
+
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.section-title {
+    font-size: 3em;
+    color: #8b6f47;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+.date-info {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.date-details {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.date-icon {
+    font-size: 3em;
+}
+
+.date-text {
+    text-align: left;
+}
+
+.date-day {
+    font-size: 2.5em;
+    color: #8b6f47;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.date-day-name {
+    font-size: 1.2em;
+    color: #a0826d;
+    font-style: italic;
+}
+
+.location {
+    font-size: 2.5em;
+    color: #8b6f47;
+    font-weight: 600;
+}
+
+/* Страница 4: Опрос */
+.page-4 {
+    background: linear-gradient(135deg, #f5f1e8 0%, #fff8f0 100%);
+}
+
+.invitation-form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 60px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 50px;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 40px;
+}
+
+.form-label {
+    display: block;
+    font-size: 1.8em;
+    color: #8b6f47;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.3em;
+    color: #6b5543;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+    background: rgba(201, 169, 97, 0.1);
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #c9a961;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-family: inherit;
+    color: #6b5543;
+    margin-top: 15px;
+    resize: vertical;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #c9a961;
+    box-shadow: 0 0 10px rgba(201, 169, 97, 0.3);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5em;
+    color: white;
+    background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 169, 97, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Страница 5: Благодарность */
+.page-5 {
+    background: linear-gradient(135deg, #e8ddd4 0%, #f5f1e8 100%);
+}
+
+.thanks-content {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 80px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.thanks-title {
+    font-size: 4em;
+    color: #8b6f47;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.thanks-text {
+    font-size: 2em;
+    color: #6b5543;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.thanks-text-bottom {
+    font-size: 2.5em;
+    color: #8b6f47;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.heart-icon {
+    font-size: 5em;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .pattern-left,
+    .pattern-right {
+        width: 80px;
+    }
+    
+    .main-title {
+        font-size: 4em;
+        letter-spacing: 5px;
+    }
+    
+    .rings-container {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pattern-left,
+    .pattern-right {
+        width: 50px;
+        opacity: 0.5;
+    }
+    
+    .main-title {
+        font-size: 3em;
+        letter-spacing: 3px;
+    }
+    
+    .invitation-text,
+    .date-info,
+    .invitation-form,
+    .thanks-content {
+        padding: 40px 30px;
+    }
+    
+    .greeting {
+        font-size: 2em;
+    }
+    
+    .poem {
+        font-size: 1.2em;
+    }
+    
+    .section-title {
+        font-size: 2.5em;
+    }
+    
+    .rings-container {
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .ring {
+        font-size: 3em;
+    }
+    
+    .date-day,
+    .location {
+        font-size: 2em;
+    }
+    
+    .date-icon {
+        font-size: 2.5em;
+    }
+    
+    .form-label {
+        font-size: 1.5em;
+    }
+    
+    .radio-label,
+    .checkbox-label {
+        font-size: 1.1em;
+    }
+    
+    .thanks-title {
+        font-size: 3em;
+    }
+    
+    .thanks-text {
+        font-size: 1.5em;
+    }
+    
+    .thanks-text-bottom {
+        font-size: 2em;
+    }
+    
+    .heart-icon {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .pattern-left,
+    .pattern-right {
+        display: none;
+    }
+    
+    .main-title {
+        font-size: 2.2em;
+        letter-spacing: 2px;
+    }
+    
+    .invitation-text,
+    .date-info,
+    .invitation-form,
+    .thanks-content {
+        padding: 30px 20px;
+    }
+    
+    .greeting {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    
+    .poem {
+        font-size: 1.1em;
+        margin-bottom: 25px;
+    }
+    
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    
+    .rings-container {
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .ring {
+        font-size: 2.5em;
+    }
+    
+    .date-item {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .date-text {
+        text-align: center;
+    }
+    
+    .date-day,
+    .location {
+        font-size: 1.8em;
+    }
+    
+    .date-icon {
+        font-size: 2em;
+    }
+    
+    .form-label {
+        font-size: 1.3em;
+    }
+    
+    .radio-label,
+    .checkbox-label {
+        font-size: 1em;
+        padding: 12px;
+    }
+    
+    .submit-btn {
+        font-size: 1.3em;
+        padding: 18px;
+    }
+    
+    .thanks-title {
+        font-size: 2.5em;
+    }
+    
+    .thanks-text {
+        font-size: 1.3em;
+    }
+    
+    .thanks-text-bottom {
+        font-size: 1.8em;
+    }
+    
+    .heart-icon {
+        font-size: 3.5em;
+    }
+    
+    .music-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}

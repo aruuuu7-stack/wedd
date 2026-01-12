@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <link rel="stylesheet" href="wedding-style.css">
+</head>
+<body>
+    <!-- Кнопка включения музыки -->
+    <button class="music-toggle" id="musicToggle" title="Включить музыку">
+        <span class="music-icon">🎵</span>
+    </button>
+    <audio id="backgroundMusic" loop>
+        <!-- Для использования своей музыки: замените src на путь к вашему аудиофайлу (например: "music.mp3") -->
+        <!-- Можно использовать формат MP3, OGG или WAV -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- Альтернативный источник (если первый не работает): -->
+        <!-- <source src="your-music.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <!-- Страница 1: Заголовок -->
+    <section class="page page-1" id="page1">
+        <div class="pattern-left">
+            <svg viewBox="0 0 100 600" class="kyrgyz-pattern-vertical">
+                <path d="M50,50 Q30,100 50,150 T50,250 T50,350 T50,450 T50,550" stroke="#c9a961" fill="none" stroke-width="2" opacity="0.6"/>
+                <circle cx="50" cy="150" r="4" fill="#c9a961" opacity="0.6"/>
+                <circle cx="50" cy="250" r="4" fill="#c9a961" opacity="0.6"/>
+                <circle cx="50" cy="350" r="4" fill="#c9a961" opacity="0.6"/>
+                <circle cx="50" cy="450" r="4" fill="#c9a961" opacity="0.6"/>
+                <path d="M30,100 L70,100 M30,200 L70,200 M30,300 L70,300 M30,400 L70,400" stroke="#c9a961" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+        </div>
+        <div class="pattern-right">
+            <svg viewBox="0 0 100 600" class="kyrgyz-pattern-vertical">
+                <path d="M50,50 Q70,100 50,150 T50,250 T50,350 T50,450 T50,550" stroke="#c9a961" fill="none" stroke-width="2" opacity="0.6"/>
+                <circle cx="50" cy="150" r="4" fill="#c9a961" opacity="0.6"/>
+                <circle cx="50" cy="250" r="4" fill="#c9a961" opacity="0.6"/>
+                <circle cx="50" cy="350" r="4" fill="#c9a961" opacity="0.6"/>
+                <circle cx="50" cy="450" r="4" fill="#c9a961" opacity="0.6"/>
+                <path d="M30,100 L70,100 M30,200 L70,200 M30,300 L70,300 M30,400 L70,400" stroke="#c9a961" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+        </div>
+        <div class="page-content">
+            <h1 class="main-title">Приглашение на свадьбу</h1>
+        </div>
+        <!-- <div class="scroll-indicator">
+            <span>↓</span>
+        </div> -->
+    </section>
+
+    <!-- Страница 2: Текст приглашения -->
+    <section class="page page-2" id="page2">
+        <div class="page-content">
+            <div class="invitation-text">
+                <p class="greeting">Уважаемый(ая) гость!</p>
+                <p class="poem">
+                    Приглашаем вас на свадьбу,<br>
+                    Будьте свидетелями прекрасного торжества,<br>
+                    Объединения двух семей<br>
+                    И создания новой семьи.
+                </p>
+                <p class="poem">
+                    В этот день особенный<br>
+                    Мы хотим разделить счастье с вами,<br>
+                    Ваше присутствие сделает наш праздник<br>
+                    Ещё более светлым и незабываемым.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница 3: Дата и место -->
+    <section class="page page-3" id="page3">
+        <div class="page-content">
+            <div class="rings-container">
+                <div class="ring ring-left">💍</div>
+                <div class="ring ring-right">💍</div>
+            </div>
+            <div class="date-info">
+                <h2 class="section-title">Дата и место встречи</h2>
+                <div class="date-details">
+                    <div class="date-item">
+                        <span class="date-icon">📅</span>
+                        <div class="date-text">
+                            <div class="date-day">08 августа 2028</div>
+                            <div class="date-day-name">четверг</div>
+                        </div>
+                    </div>
+                    <div class="date-item">
+                        <span class="date-icon">📍</span>
+                        <div class="date-text">
+                            <div class="location">Город Ош</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Страница 4: Опрос -->
+    <section class="page page-4" id="page4">
+        <div class="page-content">
+            <h2 class="section-title">Пожалуйста, заполните форму</h2>
+            <form class="invitation-form" id="invitationForm">
+                <div class="form-group">
+                    <label class="form-label">С кем вы придёте?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="guests" value="alone" required>
+                            <span>Один(а)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="guests" value="spouse" required>
+                            <span>С мужем/женой</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="guests" value="children" required>
+                            <span>С детьми</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="guests" value="family" required>
+                            <span>С мужем/женой и детьми</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Есть ли у вас аллергия?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="allergy" value="none">
+                            <span>Нет аллергии</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="allergy" value="dairy">
+                            <span>На молочные продукты</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="allergy" value="nuts">
+                            <span>На орехи</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="allergy" value="gluten">
+                            <span>На глютен</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="allergy" value="other">
+                            <span>Другое</span>
+                        </label>
+                    </div>
+                    <textarea 
+                        class="form-textarea" 
+                        name="allergy-details" 
+                        placeholder="Если другое, укажите подробности..."
+                        rows="3"
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Страница 5: Благодарность -->
+    <section class="page page-5" id="page5">
+        <div class="page-content">
+            <div class="thanks-content">
+                <h2 class="thanks-title">Спасибо</h2>
+                <p class="thanks-text">
+                    за то, что вы рядом<br>
+                    в такие важные моменты
+                </p>
+                <p class="thanks-text-bottom">Ждём вас!</p>
+                <div class="heart-icon">❤️</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="wedding-script.js"></script>
+</body>
+</html>
