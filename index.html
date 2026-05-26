@@ -11,8 +11,12 @@
     <button class="music-toggle" id="musicToggle" title="Включить музыку">
         <span class="music-icon">🎵</span>
     </button>
-        <audio id="backgroundMusic" loop>
-            <source src="music.mp3" type="audio/mpeg">
+        <audio id="backgroundMusic" loop controls>
+                <!-- Для использования своей музыки: замените src на путь к вашему аудиофайлу (например: "music.mp3") -->
+                <!-- Можно использовать формат MP3, OGG или WAV -->
+                <source src="https://youtu.be/FcByl8Hqq04?si=8oR2X4S67kaHy2y7" type="audio/mpeg">
+                <!-- Альтернативный источник (если первый не работает): -->
+                <!-- <source src="your-music.mp3" type="audio/mpeg"> -->
         </audio>
 
     <!-- Страница 1: Заголовок -->
